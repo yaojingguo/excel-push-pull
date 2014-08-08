@@ -18,6 +18,20 @@ describe('XLSX', function() {
   var json = {
     grade: '高一'
   };
+  var outputJson = {
+    grade: '高一',
+    item: '',
+    class_type: '',
+    teacher_name: '',
+    student_name: '',
+    seat: '',
+    scores: {
+      '1-1-1-1': '',
+      '1-1-1-2': '',
+      '1-1-1-3': '',
+      '1-1-1-4': ''
+    }
+  };
   describe('#_substitute', function() {
     it('should substitue all placeholders', function() {
       row = xlsx._substitute(xlsx._sheetsMeta[2].template, json);
@@ -71,7 +85,7 @@ describe('XLSX', function() {
   });
   describe('#_match', function() {
     it('should match the row to json', function() {
-      xlsx._match(xlsx._sheetsMeta[2].template, row).should.eql(json);
+      xlsx._match(xlsx._sheetsMeta[2].template, row).should.eql(outputJson);
     });
   });
 });
