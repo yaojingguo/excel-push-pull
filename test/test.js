@@ -21,7 +21,7 @@ tests.forEach(function(test) {
     var push = new Push();
     var pull = new Pull();
     it('should push records', function (done) {
-      this.timeout(1500);
+      this.timeout(3000);
       push.setXLSXStream(fs.createReadStream(xlsxFile));
       push.records(inputJson);
       push.pipe(concat(function(buf) {
@@ -30,7 +30,7 @@ tests.forEach(function(test) {
       }));
     });
     it('should pull the pushed value from zipBuffer', function (done) {
-      this.timeout(1500);
+      this.timeout(3000);
       pull.setXLSXBuffer(zipBuffer);
       pull.records(function(err, records) {
         if (err) return done(err);
