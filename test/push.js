@@ -33,7 +33,7 @@ describe('Push', function() {
   });
   describe('#pipe', function() {
     it('should pipe to fstream', function(done) {
-      var ws = fs.createWriteStream(path.join(__dirname, 'output-worksheets.xlsx'));
+      var ws = fs.createWriteStream(path.join(__dirname, '.ignore.worksheets.xlsx'));
       push.pipe(ws);
       ws.on('close', done);
     });
