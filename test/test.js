@@ -34,7 +34,7 @@ tests.forEach(function(test) {
       pull.setXLSXBuffer(zipBuffer);
       pull.records(function(err, records) {
         if (err) return done(err);
-        records.should.eql(inputJson);
+        inputJson.should.eql(records);
         done();
       });
     });

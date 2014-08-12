@@ -12,7 +12,7 @@ describe('Pull', function () {
     it('should pull records from std-worksheets.xlsx', function (done) {
       pull.records(2, function(err, records) {
         if (err) return done(err);
-        records.should.eql(require('./records.json'));
+        require('./records.json').should.eql(records);
         done();
       });
     });

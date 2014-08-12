@@ -12,33 +12,27 @@ describe('Push', function() {
   describe('#setFilePath', function() {
     it('should set file path to ' + excelFilePath, function() {
       push.setFilePath(excelFilePath);
-      push._filePath.should.equal(excelFilePath);
+      excelFilePath.should.equal(push._filePath);
     });
   });
   describe('#record', function() {
     it('should add a record to push', function() {
       push.record(records[0], 2);
-      push._records.should.eql({
+      ({
         2: records.slice(0, 1)
-      });
+      }).should.eql(push._records);
     });
   });
-  describe('#records', function () {
+  describe('#records', function() {
     it('should add some records to push', function() {
       push.records(records.slice(1), 2);
-      push._records.should.eql({
+      ({
         2: records
-      });
+      }).should.eql(push._records);
     });
   });
-  // describe('#finalize', function () {
-  //   it('should finalize push instance', function (done) {
-  //     push.finalize(done);
-  //   });
-  // });
-  describe('#pipe', function () {
+  describe('#pipe', function() {
     it('should pipe to fstream', function(done) {
-      this.timeout(100000);
       var ws = fs.createWriteStream(path.join(__dirname, 'output-worksheets.xlsx'));
       push.pipe(ws);
       ws.on('close', done);

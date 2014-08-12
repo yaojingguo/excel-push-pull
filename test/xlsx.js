@@ -32,41 +32,42 @@ describe('XLSX', function() {
       '1-1-1-4': ''
     }
   };
+  var rowJson = {
+    customHeight: 1,
+    ht: 15,
+    r: 6,
+    spans: '1:201',
+    'x14ac:dyDescent': 0.15,
+    c: [{
+      r: 'A6',
+      t: 'str',
+      v: {
+        '$t': '高一'
+      }
+    }, {
+      r: 'B6'
+    }, {
+      r: 'C6'
+    }, {
+      r: 'D6'
+    }, {
+      r: 'E6'
+    }, {
+      r: 'F6'
+    }, {
+      r: 'G6'
+    }, {
+      r: 'H6'
+    }, {
+      r: 'I6'
+    }, {
+      r: 'J6'
+    }]
+  };
   describe('#_substitute', function() {
     it('should substitue all placeholders', function() {
       row = xlsx._substitute(xlsx._sheetsMeta[2].template, json);
-      row.should.eql({
-        customHeight: 1,
-        ht: 15,
-        r: 6,
-        spans: '1:201',
-        'x14ac:dyDescent': 0.15,
-        c: [{
-          r: 'A6',
-          t: 'str',
-          v: {
-            '$t': '高一'
-          }
-        }, {
-          r: 'B6'
-        }, {
-          r: 'C6'
-        }, {
-          r: 'D6'
-        }, {
-          r: 'E6'
-        }, {
-          r: 'F6'
-        }, {
-          r: 'G6'
-        }, {
-          r: 'H6'
-        }, {
-          r: 'I6'
-        }, {
-          r: 'J6'
-        }]
-      });
+      rowJson.should.eql(row);
     });
   });
   describe('#_setRow', function() {
@@ -74,18 +75,18 @@ describe('XLSX', function() {
       var prevLen = xlsx._sheets[2].worksheet.sheetData.row.length;
       xlsx._setRow(2, row);
       var nextLen = xlsx._sheets[2].worksheet.sheetData.row.length;
-      (nextLen - prevLen).should.equal(1);
+      (prevLen + 1).should.equal(nextLen);
     });
     it('should set a duplicated row, row number keep', function() {
       var prevLen = xlsx._sheets[2].worksheet.sheetData.row.length;
       xlsx._setRow(2, row);
       var nextLen = xlsx._sheets[2].worksheet.sheetData.row.length;
-      (nextLen - prevLen).should.equal(0);
+      prevLen.should.equal(nextLen);
     });
   });
   describe('#_match', function() {
     it('should match the row to json', function() {
-      xlsx._match(xlsx._sheetsMeta[2].template, row).should.eql(outputJson);
+      outputJson.should.eql(xlsx._match(xlsx._sheetsMeta[2].template, row));
     });
   });
 });
