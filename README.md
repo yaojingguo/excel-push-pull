@@ -40,6 +40,7 @@ pull.records(function(err, records) {
 
 ##API
 - `setXLSXStream(readStream)` set a read stream
+- `setXLSXBuffer(buffer)` set a zip buffer
 - `setFilePath(filePath)` set a file path
 
 ###Push
@@ -49,4 +50,7 @@ pull.records(function(err, records) {
 
 ###Pull
 - `records(sheedId=1, callback)` pull an array of json from sheet in _sheetId_
+
+  callback is in nodejs style, `callback(err, records)` where records is an array 
+of data, empty line is trimed off.
 

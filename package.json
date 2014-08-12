@@ -1,11 +1,11 @@
 {
   "name": "excel-push-pull",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Push/Pull lines of data to/from an excel xlsx",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xdfcn/excel-pour"
+    "url": "https://github.com/xdfcn/excel-push-pull"
   },
   "keywords": [
     "node",
@@ -18,9 +18,9 @@
   "author": "idy0013@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xdfcn/excel-pour/issues"
+    "url": "https://github.com/xdfcn/excel-push-pull/issues"
   },
-  "homepage": "https://github.com/xdfcn/excel-pour",
+  "homepage": "https://github.com/xdfcn/excel-push-pull",
   "dependencies": {
     "archiver": "^0.10.1",
     "concat-stream": "^1.4.6",
