@@ -16,7 +16,7 @@ tests.forEach(function(test) {
   var xlsxFile = path.join(__dirname, 'test-' + test + '.xlsx');
   var jsonFile = path.join(__dirname, 'data-' + test + '.json');
   var inputJson = require(jsonFile);
-  describe('Test case ' + test, function() {
+  describe('Test case ' + test + ' in memory', function() {
     var zipBuffer;
     var push = new Push();
     var pull = new Pull();
