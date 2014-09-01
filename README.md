@@ -54,3 +54,62 @@ pull.records(function(err, records) {
   callback is in nodejs style, `callback(err, records)` where records is an array 
 of data, empty line is trimed off.
 
+##Example
+###Excel file template
+
+No. | Name | Grade | Score
+--- | --- | --- | --- 
+\#\#no | \#\#name | \#\#grade | \#\#score
+
+###Push
+
+The data we wanna push to the excel:
+```json
+[{
+  "no": 1,
+  "name": "John",
+  "grade": "First Year",
+  "score": "B"
+}, {
+  "no": 2,
+  "name": "Lee",
+  "grade": "First Year",
+  "score": "A"
+}, {
+  "no": 3,
+  "name": "Tom",
+  "grade": "Second Year",
+  "score": "C"
+}]
+```
+After pushing, we get:
+
+No. | Name | Grade | Score
+--- | --- | --- | --- 
+\#\#no | \#\#name | \#\#grade | \#\#score
+1 | John | First Year | B
+2 | Lee | First Year | A
+3 | Tom | Second Year | C
+
+###Pull
+
+If we pull records from the blowing table, we get:
+```json
+[{
+  "no": 1,
+  "name": "John",
+  "grade": "First Year",
+  "score": "B"
+}, {
+  "no": 2,
+  "name": "Lee",
+  "grade": "First Year",
+  "score": "A"
+}, {
+  "no": 3,
+  "name": "Tom",
+  "grade": "Second Year",
+  "score": "C"
+}]
+```
+
