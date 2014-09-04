@@ -22,7 +22,8 @@ tests.forEach(function(test) {
     it('should push records', function (done) {
       this.timeout(3000);
       push.setXLSXStream(fs.createReadStream(xlsxFile));
-      push.records(inputJson);
+      if (inputJson)
+        push.records(inputJson);
       var ws = fs.createWriteStream(tempFile, {
         encoding: null
       });
@@ -39,7 +40,7 @@ tests.forEach(function(test) {
       pull.setFilePath(tempFile);
       pull.records(function(err, records) {
         if (err) return done(err);
-        inputJson.should.eql(records);
+        inputJson === records || inputJson.should.eql(records);
         done();
       });
     });
