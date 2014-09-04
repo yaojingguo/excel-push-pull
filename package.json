@@ -1,6 +1,6 @@
 {
   "name": "excel-push-pull",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Push/Pull lines of data to/from an excel xlsx",
   "main": "index.js",
   "repository": {
