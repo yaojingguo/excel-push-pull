@@ -23,9 +23,7 @@ tests.forEach(function(test) {
     it('should push records', function (done) {
       this.timeout(3000);
       push.setXLSXStream(fs.createReadStream(xlsxFile));
-      if (inputJson) {
-        push.records(inputJson);
-      }
+      push.records(inputJson || []);
       push.pipe(concat(function(buf) {
         zipBuffer = buf;
         done();
